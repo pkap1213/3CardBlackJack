@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootStack" fx:controller="GameController" styleClass="game-root">
+    <BorderPane fx:id="rootPane">
+        <top>
+            <HBox styleClass="game-header">
+                <Label text="3 CARD POKER" styleClass="game-header-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox spacing="5" styleClass="earned-section">
+                    <Label text="EARNED:" styleClass="earned-label"/>
+                    <Label fx:id="totalWinnings" text="0" styleClass="earned-amount"/>
+                </HBox>
+            </HBox>
+        </top>
+
+        <center>
+            <AnchorPane styleClass="game-content" prefHeight="550">
+                <VBox layoutX="25" layoutY="20" spacing="20" styleClass="left-section">
+                    <VBox spacing="8">
+                        <Label text="ANTE WAGER" styleClass="section-title"/>
+                        <Label text="MIN: 5" styleClass="section-subtitle"/>
+                        <Label text="MAX: 25" styleClass="section-subtitle"/>
+                        <TextField fx:id="anteField" promptText="INPUT NUMBER" styleClass="wager-input"/>
+                    </VBox>
+
+                    <VBox spacing="8">
+                        <Label text="PAIR PLUS WAGER" styleClass="section-title"/>
+                        <Label text="(OPTIONAL)" styleClass="section-subtitle-optional"/>
+                        <Label text="MIN: 5" styleClass="section-subtitle"/>
+                        <Label text="MAX: 25" styleClass="section-subtitle"/>
+                        <TextField fx:id="pairPlusField" promptText="INPUT NUMBER" styleClass="wager-input"/>
+                    </VBox>
+                </VBox>
+
+                <VBox layoutX="280" layoutY="10" spacing="20" alignment="TOP_CENTER" styleClass="center-section">
+                    <VBox spacing="10" alignment="CENTER">
+                        <Label text="DEALER HAND" styleClass="hand-title"/>
+                        <HBox spacing="12" alignment="CENTER" fx:id="dealerCardsBox" styleClass="cards-box"/>
+                    </VBox>
+
+                    <VBox spacing="10" alignment="CENTER">
+                        <Label text="YOUR HAND" styleClass="hand-title"/>
+                        <HBox spacing="12" alignment="CENTER" fx:id="playerCardsBox" styleClass="cards-box"/>
+                    </VBox>
+
+                    <HBox spacing="20" alignment="CENTER" styleClass="action-buttons">
+                        <Button fx:id="dealBtn" text="DEAL" styleClass="btn-deal" onAction="#onDeal"/>
+                        <Button fx:id="playBtn" text="PLAY" styleClass="btn-play" onAction="#onPlay"/>
+                        <Button fx:id="foldBtn" text="FOLD" styleClass="btn-fold" onAction="#onFold"/>
+                    </HBox>
+                </VBox>
+
+                <VBox layoutX="800" layoutY="20" spacing="12" styleClass="right-section">
+                    <VBox spacing="6" styleClass="wager-display">
+                        <Label text="PLAY" styleClass="wager-label"/>
+                        <Label text="WAGER:" styleClass="wager-label"/>
+                        <Label fx:id="playWagerValue" text="0" styleClass="wager-value"/>
+                    </VBox>
+
+                    <VBox spacing="6" styleClass="wager-display">
+                        <Label text="PAIR PLUS" styleClass="wager-label"/>
+                        <Label text="WAGER:" styleClass="wager-label"/>
+                        <Label fx:id="pairPlusWagerValue" text="0" styleClass="wager-value"/>
+                    </VBox>
+
+                    <VBox spacing="6" styleClass="wager-display">
+                        <Label text="ANTE WAGER:" styleClass="wager-label"/>
+                        <Label fx:id="anteWagerValue" text="0" styleClass="wager-value"/>
+                    </VBox>
+
+                    <VBox spacing="6" styleClass="game-info-box">
+                        <Label text="GAME INFO" styleClass="game-info-title"/>
+                        <ListView fx:id="infoList" styleClass="info-list" prefHeight="140"/>
+                    </VBox>
+                </VBox>
+                <Pane fx:id="optionsFrame" layoutX="18" layoutY="400" prefWidth="200" prefHeight="110" visible="false" managed="false" styleClass="options-frame">
+                    <Region fx:id="optionsInnerBg" layoutX="6" layoutY="6" prefWidth="188" prefHeight="98" styleClass="options-inner-bg"/>
+                    <VBox spacing="8" alignment="TOP_LEFT" styleClass="options-menu" prefWidth="188" prefHeight="96" layoutX="6" layoutY="6">
+                        <Button fx:id="freshStartBtn" text="FRESH START" onAction="#onFreshStartMenu" styleClass="options-menu-btn-small"/>
+                        <Button fx:id="newLookBtn" text="NEW LOOK" onAction="#onNewLookMenu" styleClass="options-menu-btn-small"/>
+                        <Button fx:id="exitBtn" text="EXIT" onAction="#onExitMenu" styleClass="options-menu-btn-small"/>
+                    </VBox>
+                </Pane>
+
+            </AnchorPane>
+        </center>
+
+        <bottom>
+            <HBox styleClass="bottom-bar" alignment="CENTER_LEFT" spacing="20">
+                <Button fx:id="optionsBtn" text="OPTIONS" styleClass="options-btn" onAction="#onOptionsToggle"/>
+                <Region HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </bottom>
+    </BorderPane>
+</StackPane>

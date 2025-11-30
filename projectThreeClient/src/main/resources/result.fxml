@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ResultController"
+      fx:id="rootVBox"
+      alignment="CENTER"
+      spacing="30"
+      styleClass="result-root">
+    <Label fx:id="resultMsg" text="You Won!" styleClass="result-title" wrapText="true" maxWidth="760" alignment="CENTER" textAlignment="CENTER"/>
+    <Label fx:id="amountLabel" text="+$25" styleClass="result-amount"/>
+    <HBox spacing="20" alignment="CENTER">
+        <Button fx:id="playAgainBtn" text="Play Another Hand" onAction="#onPlayAgain" styleClass="btn-play" style="-fx-font-size: 16px; -fx-padding: 10 30 10 30;"/>
+        <Button fx:id="exitBtn" text="Exit" onAction="#onExit" styleClass="btn-play" style="-fx-font-size: 16px; -fx-padding: 10 30 10 30;"/>
+    </HBox>
+</VBox>

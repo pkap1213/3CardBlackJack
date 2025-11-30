@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeController" styleClass="welcome-root">
+    <center>
+        <VBox alignment="CENTER" spacing="30" styleClass="welcome-container">
+            <VBox alignment="CENTER" spacing="20">
+                <Label text="WELCOME TO 3 CARD POKER!" styleClass="welcome-title"/>
+                <Label text="INPUT IP ADDRESS AND PORT NUMBER," styleClass="welcome-subtitle"/>
+                <Label text="THEN PRESS PLAY!" styleClass="welcome-subtitle"/>
+            </VBox>
+            
+            <VBox spacing="15" alignment="CENTER">
+                <TextField fx:id="ipField" promptText="IP ADDRESS" styleClass="welcome-input"/>
+                <TextField fx:id="portField" promptText="PORT NUMBER" styleClass="welcome-input"/>
+            </VBox>
+            
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="QUIT" styleClass="welcome-btn-quit" onAction="#onQuit"/>
+                <Button fx:id="connectBtn" text="PLAY!" styleClass="welcome-btn-play" onAction="#onConnect"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
